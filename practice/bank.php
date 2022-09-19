@@ -25,4 +25,3 @@ $half_dollar = 33;
 $total = ($pennies * $penny_value) + ($nickels * $nickel_value) + ($dimes * $dime_value) + ($quarters * $quarter_value) + ($half_dollar * $half_dollar_value);
 
 require 'bank-view.php';
-?>
