@@ -11,7 +11,7 @@
     <h1>Rock Paper Scissors Game Simluator</h1>
     <h2>Mechanics</h2>
     <ul>
-        <li>Player A and Player B randomly “throw” either Rock, Paper or Scissors.</li>
+        <li>Player 1 and Player 2 randomly “throw” either Rock, Paper or Scissors.</li>
         <li>A tie is declared if both players throw the same move.</li>
         <li>Otherwise: Rock beats Scissors, Scissors beats Paper, Paper beats Rock.</li>
     </ul>
