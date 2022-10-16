@@ -3,10 +3,10 @@
 require 'Catalog.php';
 
 //how to use different JSON files within same class/index
-// $catalogCambridge = new Catalog('cambridge-products.json'); 
-// $catalogSomerville = new Catalog('somerville-products.json'); 
+// $catalogCambridge = new Catalog('cambridge-products.json');
+// $catalogSomerville = new Catalog('somerville-products.json');
 
-$catalog = new Catalog('products.json'); 
+$catalog = new Catalog('products.json');
 
 $product = $catalog->getById(9);
 
