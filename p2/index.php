@@ -1,3 +1,5 @@
 <?php
 
-echo "project 2";
+session_start();
+
+require 'index-view.php';
