@@ -21,13 +21,10 @@ else {
     $winner = "Player 2 wins";
 }
 
-var_dump($choice);
-var_dump($comp);
-var_dump($winner);
-
-
 $_SESSION['results'] = [
     'winner' => $winner,
     'comp' => $comp,
     'choice' => $choice
 ];
+
+header('Location: index.php');
