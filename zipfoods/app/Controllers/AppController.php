@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controllers;
 
 class AppController extends Controller
@@ -8,22 +9,20 @@ class AppController extends Controller
      */
     public function index()
     {
-        $welcomes = ['Welcome', 'Aloha', 'Welkom', 'Bienvenidos', 'Bienvenu', 'Welkomma'];
-        
-        return $this->app->view('index', [
-            'welcome' => $welcomes[array_rand($welcomes)]
-        ]);
+        return $this->app->view('index');
     }
 
-    public function contact(){
-        return $this->app->view('contact',[
+    public function contact()
+    {
+        return $this->app->view('contact', [
             'email' => 'support@zipfoods.com'
         ]);
     }
 
-    public function about(){
+    public function about()
+    {
         $message = 'ZipFoods is your one-stop-shop for convenient online grocery shopping in the greater Boston area.';
-        return $this->app->view('about',[
+        return $this->app->view('about', [
             'message' => $message
         ]);
     }
