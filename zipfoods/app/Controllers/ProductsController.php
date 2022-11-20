@@ -28,6 +28,22 @@ class ProductsController extends Controller
         if(is_null($product)){
             return $this->app->view('errors/missingProduct');
         }
-        return $this ->app->view('products/show',['product'=>$product]);
+
+        $reviewSaved = $this->app->old('reviewSaved');
+        
+
+        return $this ->app->view('products/show',[
+            'product'=>$product,
+            'reviewSaved'=>$reviewSaved
+        ]);
+    }
+
+    public function saveReview()
+    {
+       $sku =$this->app->input('sku');
+       $name = $this->app->input('name');
+       $review = $this->app->input('review');
+
+       return $this->app->redirect('/product?sku=' . $sku, ['reviewSaved' =>true]);
     }
 }
