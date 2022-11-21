@@ -28,7 +28,6 @@ class AppController extends Controller
     }
 
     # src/Controllers/AppController.php
-
     public function practice()
     {
         # Set up all the variables we need to make a connection
@@ -54,7 +53,47 @@ class AppController extends Controller
         } catch (\PDOException $e) {
             throw new \PDOException($e->getMessage(), (int)$e->getCode());
         }
+        #Example 1
+        # Write a SQL query
+        $sql = "SELECT * FROM products";
 
-        dump('Connection successful!');
+        # Execute the statement, getting the result set as a PDOStatement object
+        # https://www.php.net/manual/en/pdo.query.php
+        $statement = $pdo->query($sql);
+
+        # https://www.php.net/manual/en/pdostatement.fetchall.php
+        dump($statement->fetchAll());
+
+        #example 2
+        $sql = "INSERT INTO products (name, sku, description, price, available, weight, perishable) 
+                VALUES (
+                    'Driscoll’s Strawberries', 
+                    'driscolls-strawberries',
+                    'Driscoll’s Strawberries are consistently the best, sweetest, juiciest strawberries available. This size is the best selling, as it is both convenient for completing a cherished family recipes and for preparing a quick snack straight from the fridge.',
+                    4.99, 
+                    0, 
+                    1,
+                    1)";
+
+        $pdo->query($sql);
+
+        #example 3
+        $sqlTemplate = "INSERT INTO products (name, sku, description, price, available, weight, perishable) 
+            VALUES (:name, :sku, :description, :price, :available, :weight, :perishable)";
+
+            $values = [
+                'name' => 'Driscoll’s Strawberries',
+                'sku' => 'driscolls-strawberries',
+                'description' => 'Driscoll’s Strawberries are consistently the best, sweetest, juiciest strawberries available. This size is the best selling, as it is both convenient for completing a cherished family recipes and for preparing a quick snack straight from the fridge.',
+                'sku' => 'driscolls-strawberries',
+                'price' => 4.99,
+                'available' => 0,
+                'weight' => 1,
+                'perishable' => 1,
+            ];
+
+        $statement = $pdo->prepare($sqlTemplate);
+        $statement->execute($values);
+
     }
 }
