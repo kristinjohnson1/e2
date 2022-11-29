@@ -15,7 +15,9 @@ class AppCommand extends Command
     {
         $this->migrate();
         $this->seedProducts();
+        $this -> seedReviews();
     }
+
 
     public function migrate()
     {
