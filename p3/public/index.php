@@ -1,7 +1,4 @@
 <?php
-
-echo "project 3";
-
 # This is the main controller
 # All traffic should route through here
 
