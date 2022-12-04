@@ -8,10 +8,27 @@ class AppController extends Controller
      */
     public function index()
     {
-        $welcomes = ['Welcome', 'Aloha', 'Welkom', 'Bienvenidos', 'Bienvenu', 'Welkomma'];
-        
+        $message = 'test for index';
         return $this->app->view('index', [
-            'welcome' => $welcomes[array_rand($welcomes)]
+            'message' => $message
+        ]);
+    }
+
+    public function game()
+    {
+        $message = 'Game page';
+
+        return $this->app->view('game', [
+        'message' => $message
+    ]);
+    }
+
+    public function history()
+    {
+        $message = 'history';
+
+        return $this->app->view('history', [
+            'message' => $message
         ]);
     }
 }

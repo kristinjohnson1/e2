@@ -18,6 +18,13 @@ class AppController extends Controller
             'email' => 'support@zipfoods.com'
         ]);
     }
+    public function test()
+    {
+        return $this->app->view('test', [
+            'email' => 'support@zipfoods.com'
+        ]);
+    }
+
 
     public function about()
     {

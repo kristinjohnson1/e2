@@ -11,4 +11,5 @@ About
 @section('content') <h2>About</h2>
 
 <p>Zipfoods is your one stop shop for convient online grocery shopping in the greater Boston area</p>
+
 @endsection
