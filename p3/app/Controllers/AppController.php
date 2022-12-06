@@ -44,6 +44,7 @@ class AppController extends Controller
         return $this->app->view('index',['message' => $winner]);
     }
 
+    //show list of all games by date
     public function game()
     {
         $message = 'Game page';
@@ -53,6 +54,7 @@ class AppController extends Controller
     ]);
     }
 
+    //info for selected game
     public function history()
     {
         $message = 'history';
