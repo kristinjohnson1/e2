@@ -1,14 +1,20 @@
 @extends('templates/master')
 
 @section('title')
-    {{ $message }}
+    Rock Paper Scissors
 @endsection
 
 @section('content')
 
-    <h2>{{ $message }}</h2>
+{{$message}}
+	<h1>Rock Paper Scissors</h1>
+	<form method='POST' action= '/rps'>
+		<input type='radio' id='rock' name="choice" value="rock" checked><label for="rock">Rock</label>
+		<input type='radio' id='paper' name="choice" value="paper"><label for="paper">Paper</label>
+		<input type='radio' id='scissors' name="choice" value="scissors"><label for="scissors">Scissors</label>
 
-    <p>Hello and welcome! This is the boilerplate splash page for my application built with <a
-            href='https://github.com/susanBuck/e2framework'>e2framework</a>.</p>
+		<button type="submit">Play</button>
+	</form>
 
+   
 @endsection
