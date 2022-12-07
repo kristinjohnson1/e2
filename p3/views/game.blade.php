@@ -6,12 +6,19 @@
 
 @section('content')
 
-dump({{$game}});
-   @foreach ($game as $game)
-        <a class='game' href='/game?id={{ $game['id'] }}'>
-        {{$time}}
-        </a>
-   @endforeach
+@foreach ($game as $game )
+
+  <a class='product-link' href='/game?id={{$game['id']}}'>
+                <ul>
+                    <li>
+                    {{$game['time']}}
+                    </li>
+                </ul>
+            </a>
+
+    
+@endforeach
+
 
     
 @endsection

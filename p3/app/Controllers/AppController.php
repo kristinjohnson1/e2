@@ -105,33 +105,36 @@ class AppController extends Controller
         } catch (\PDOException $e) {
             throw new \PDOException($e->getMessage(), (int)$e->getCode());
         }
-        $id = '';
-        $time= '';
-        $p1 = '';
-        $p2 = '';
-        $winner = '';
 
-
-        $sql = "SELECT time FROM game";
-        $statement = $pdo->prepare($sql);
-        $statement->execute();
-        dump($statement->fetchAll());
-        
-
-          $message = 'Game page';
+        //pull data from game
+        $sql = "SELECT * FROM game";
+        //assign to array 
+        $data = $pdo->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
 
         return $this->app->view('game', [
-        'game' => $message
-    ]);
+        'game' => $data,
+        ]);
     }
 
     //info for selected game
     public function history()
     {
-        $message = 'history';
+        $id = $this->app->param('id');
+        // if (is_null($id)) {
+        //     return $this->app->redirect('/game');
+        // }
 
-        return $this->app->view('history', [
-            'message' => $message
+        $idQuery = $this->app->db()->findByColumn('id', '=', $id);
+
+        if (empty($idQuery)) {
+            return $this->app->view('/');
+        } else {
+            $game = $idQuery[0];
+        }
+
+        return $this ->app->view('history', [
+            'game'=> $game,
         ]);
+
     }
 }
