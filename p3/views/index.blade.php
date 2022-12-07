@@ -6,7 +6,6 @@
 
 @section('content')
 
-{{$message}}
 	<h1>Rock Paper Scissors</h1>
 	<form method='POST' action= '/rps'>
 		<input type='radio' id='rock' name="choice" value="rock" checked><label for="rock">Rock</label>
