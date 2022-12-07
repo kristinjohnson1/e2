@@ -16,6 +16,7 @@
 
 {{-- to do:
 * show data from selected game based on ID
+*add winner to home page
 *figure out how to redirect to ID unique page
 *add syling 
 *clean up code
