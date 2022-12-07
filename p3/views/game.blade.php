@@ -8,18 +8,15 @@
 
 @foreach ($game as $game )
 
-  <a class='product-link' href='/game?id={{$game['id']}}'>
+  <a href='/game?id={{$game['id']}}'>
                 <ul>
                     <li>
                     {{$game['time']}}
                     </li>
                 </ul>
             </a>
-
-    
 @endforeach
 
-
+<a href='/'> home </a>
     
 @endsection
-<h1>game</h1>
