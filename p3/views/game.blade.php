@@ -1,7 +1,7 @@
 @extends('templates/master')
 
 @section('title')
-    {{ $welcome }}
+    Rock Paper Scissors
 @endsection
 
 @section('content')
@@ -17,6 +17,6 @@
             </a>
 @endforeach
 
-<a href='/'> home </a>
+<a href='/'> Home </a>
     
 @endsection
