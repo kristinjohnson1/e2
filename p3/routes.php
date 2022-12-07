@@ -7,4 +7,5 @@ return [
     '/' => ['AppController', 'index'],
     '/games' =>['AppController','game'],
     '/game'=>['RoundController','index'],
+    '/rps' => ['AppController','rps']
 ];
