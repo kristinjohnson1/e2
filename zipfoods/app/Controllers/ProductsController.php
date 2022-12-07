@@ -1,36 +1,35 @@
 <?php
 
 namespace App\Controllers;
-
 use App\Products;
 
 class ProductsController extends Controller
 {
     public function index()
-    {
+    { 
         $products = $this->app->db()->all('products');
 
-        return $this->app->view('products/index', ['products'=> $products]);
+        return $this->app->view('products/index',['products'=> $products]);
     }
 
     public function show()
     {
         $sku = $this->app->param('sku');
-        if (is_null($sku)) {
+        if(is_null($sku)){
             return $this->app->redirect('/products');
         }
 
         $productQuery = $this->app->db()->findByColumn('products', 'sku', '=', $sku);
 
-        if (empty($productQuery)) {
+        if(empty($productQuery)){
             return $this->app->view('errors/missingProduct');
-        } else {
+        }else{
             $product = $productQuery[0];
         }
 
         $reviewSaved = $this->app->old('reviewSaved');
-
-        return $this ->app->view('products/show', [
+        
+        return $this ->app->view('products/show',[
             'product'=>$product,
             'reviewSaved'=>$reviewSaved
         ]);
@@ -54,14 +53,14 @@ class ProductsController extends Controller
         $name = $this->app->input('name');
         $review = $this->app->input('review');
 
-        #To do : insert data
-        $this ->app->db()->insert('reviews', [
-            'product_id' => $product_id,
-            'name' => $name,
-            'review' => $review
-        ]);
+            #To do : insert data
+            $this ->app->db()->insert('reviews', [
+                'product_id' => $product_id,
+                'name' => $name,
+                'review' => $review
+            ]);
 
-
-        return $this->app->redirect('/product?sku=' . $sku, ['reviewSaved' =>true]);
+        
+       return $this->app->redirect('/product?sku=' . $sku, ['reviewSaved' =>true]);
     }
 }

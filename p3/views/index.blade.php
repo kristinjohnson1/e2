@@ -15,6 +15,6 @@
 		<button type="submit">Play</button>
 	</form>
 
-	<a href='/game'> See previous games </a>
+	<a href='/games'> See previous games </a>
    
 @endsection

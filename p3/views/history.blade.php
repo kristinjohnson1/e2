@@ -6,9 +6,11 @@
 
 @section('content')
 
-    <h2>{{ $message }}</h2>
 
-  <h2>{{ $message }}</h2>
+    <h2>{{ $id }}</h2>
+
+  <h2>{{ $round }}</h2>
+  history page
 @endsection
 
 
@@ -17,4 +19,5 @@
 *figure out how to redirect to ID unique page
 *add syling 
 *clean up code
+* whatever is required for grad credit
  --}}

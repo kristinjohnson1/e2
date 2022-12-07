@@ -110,7 +110,7 @@ class AppController extends Controller
         $sql = "SELECT * FROM game";
         //assign to array 
         $data = $pdo->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
-
+dump($data);
         return $this->app->view('game', [
         'game' => $data,
         ]);
@@ -126,6 +126,7 @@ class AppController extends Controller
 
         $idQuery = $this->app->db()->findByColumn('id', '=', $id);
 
+        dd($id);
         if (empty($idQuery)) {
             return $this->app->view('/');
         } else {
