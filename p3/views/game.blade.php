@@ -6,7 +6,12 @@
 
 @section('content')
 
-    <h2>{{$message }}</h2>
+dump({{$game}});
+   @foreach ($game as $game)
+        <a class='game' href='/game?id={{ $game['id'] }}'>
+        {{$time}}
+        </a>
+   @endforeach
 
     
 @endsection

@@ -40,6 +40,41 @@ class AppController extends Controller
             $winner = "Player 2 wins";
         }
 
+        # Set up all the variables we need to make a connection
+        $host = $this->app->env('DB_HOST');
+        $database = $this->app->env('DB_NAME');
+        $username = $this->app->env('DB_USERNAME');
+        $password = $this->app->env('DB_PASSWORD');
+
+        # DSN (Data Source Name) string
+        # contains the information required to connect to the database
+        $dsn = "mysql:host=$host;dbname=$database;charset=utf8mb4";
+
+        # Driver-specific connection options
+        $options = [
+            \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
+            \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
+            \PDO::ATTR_EMULATE_PREPARES => false,
+        ];
+
+        try {
+            # Create a PDO instance representing a connection to a database
+            $pdo = new \PDO($dsn, $username, $password, $options);
+        } catch (\PDOException $e) {
+            throw new \PDOException($e->getMessage(), (int)$e->getCode());
+        }
+
+        $sql = "INSERT INTO game (p1, p2, winner) 
+        VALUES (:p1, :p2, :winner)";
+
+        $values = [
+            'p1' => $choice,
+            'p2' => $comp,
+            'winner' => $winner,
+        ];
+        $statement = $pdo->prepare($sql);
+        $statement->execute($values);
+
         //figure out how to actually redirect to /
         return $this->app->view('index',['message' => $winner]);
     }
@@ -47,10 +82,46 @@ class AppController extends Controller
     //show list of all games by date
     public function game()
     {
-        $message = 'Game page';
+        # Set up all the variables we need to make a connection
+        $host = $this->app->env('DB_HOST');
+        $database = $this->app->env('DB_NAME');
+        $username = $this->app->env('DB_USERNAME');
+        $password = $this->app->env('DB_PASSWORD');
+
+        # DSN (Data Source Name) string
+        # contains the information required to connect to the database
+        $dsn = "mysql:host=$host;dbname=$database;charset=utf8mb4";
+
+        # Driver-specific connection options
+        $options = [
+            \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
+            \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
+            \PDO::ATTR_EMULATE_PREPARES => false,
+        ];
+
+        try {
+            # Create a PDO instance representing a connection to a database
+            $pdo = new \PDO($dsn, $username, $password, $options);
+        } catch (\PDOException $e) {
+            throw new \PDOException($e->getMessage(), (int)$e->getCode());
+        }
+        $id = '';
+        $time= '';
+        $p1 = '';
+        $p2 = '';
+        $winner = '';
+
+
+        $sql = "SELECT time FROM game";
+        $statement = $pdo->prepare($sql);
+        $statement->execute();
+        dump($statement->fetchAll());
+        
+
+          $message = 'Game page';
 
         return $this->app->view('game', [
-        'message' => $message
+        'game' => $message
     ]);
     }
 
