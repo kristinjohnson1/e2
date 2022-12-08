@@ -16,7 +16,7 @@
 	</form>
 
 
-	 {{-- Player 2 picked {{$p2}}. The winner is {{$winner}}. --}}
+	Player 2 picked {{$p2}}. The winner is {{$winner}}.
 
 	<a href='/games'> See previous games </a>
    
