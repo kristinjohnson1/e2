@@ -9,5 +9,5 @@ modules:
     enabled:
         - Asserts
         - PhpBrowser:
-            url: http://e2zipfoods.kmjohnson.me
+            url: http://e2p3.kmjohnson.me
 step_decorators: ~
