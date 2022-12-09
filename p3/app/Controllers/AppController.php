@@ -46,7 +46,7 @@ class AppController extends Controller
             'winner' => $winner,
         ];
         $this->app->db()->insert('game', $values);
-        
+
         return $this->app->view('play', ['winner' => $winner, 'p2' => $p2]);
     }
 
@@ -56,8 +56,7 @@ class AppController extends Controller
         //pull data from game
         $sql = "SELECT * FROM game";
         //assign to array
-      $data=  $this->app->db()->run($sql)->fetchAll(\PDO::FETCH_ASSOC);
-      //  $data = $pdo->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
+        $data=  $this->app->db()->run($sql)->fetchAll(\PDO::FETCH_ASSOC);
         return $this->app->view('game', [
         'game' => $data,
         ]);

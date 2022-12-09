@@ -22,4 +22,5 @@
 *add syling 
 *clean up code
 * whatever is required for grad credit
+*validation
  --}}
