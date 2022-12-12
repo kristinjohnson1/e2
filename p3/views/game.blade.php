@@ -5,7 +5,8 @@
 @endsection
 
 @section('head')
- {{ $app->config('app.name') }}
+<img class='icon' src="/images/rps.png"/>
+<h1 class = 'name'> Previous Games </h1> 
 @endsection
 
 @section('content')
@@ -21,6 +22,6 @@
             </a>
 @endforeach
 
-<a href='/'> Home </a>
+<a class = "redirect"  href='/'> Home </a>
     
 @endsection

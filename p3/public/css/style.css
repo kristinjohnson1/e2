@@ -1,7 +1,3 @@
-.icon {
-    width:30px;
-}
-
 
 /*----------------------------------------------------
 VARIABLES
@@ -35,7 +31,25 @@ html {
     when going from a non-scrolling page to a scrolling-page */
     overflow-y: scroll;
 }
-
+.icon{
+    max-width: 20%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+  
+  }
+  
+.name{
+      margin-top: 20px;
+      font-size: 1em;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 2em;
+      text-align: center;
+      
+  }
 
 body {
     /* Default font-size */
@@ -51,39 +65,56 @@ main {
     text-align: center;
 }
 
-header {
-    text-align: center;
-    margin-top: 20px;
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
-h1{
-    color: green;
+.redirect{
+    font-size: 2rem;
+    margin-top: 5px;
+    padding: 1em;
 }
-h2 {
-    font-size: 2.75rem;
-}
-
-
-
 
 /*----------------------------------------------------
 FORMS
-
-
+-----------------------------------------------------*/
 .form-control,
 .btn {
     font-size: 1.4rem;
 }
 
 .btn {
-    margin: 10px;
+ background-color: lavender;
+ border: .1em solid blueviolet;
+ padding: 10px 24px;
+ text-align: center;
+}
+
+.btn:hover{
+    background-color: blueviolet;
 }
 
 label {
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-top: 5px;
 }
 
------------------------------------------------------*/
+div{
+    margin-top: 5px;
+    
+}
+
+.results{
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.history{
+
+
+}
