@@ -9,19 +9,31 @@ class HistoryPageCest
     // tests
     public function tryToTest(AcceptanceTester $I)
     {
-        # Act
+        # Game 1 page
         $I->amOnPage('/game?id=1');
 
-        # Assert the correct title is set on the page
+        # Look for round #
         $I->seeInTitle('Round 1');
 
-        # Assert the existence of certain text on the page
+        # Check for 'player 1'
         $I->see('Player 1');
 
-        // # Assert the existence of a certain element on the page
-        // $I->seeElement('.product-thumb');
+        # check for results class
+        $I->seeElement('.results');
 
-        // # Assert the existence of text within a specific element on the page
-        // $I->see('$4.99', '.product-price');
+        # Check for redirect class in <a>
+        $I->seeElement('.redirect');
+    }
+
+    public function home(AcceptanceTester $I)
+    {
+        # Home page
+        $I->amOnPage('/');
+        # Check for icon 
+        $I->seeElement('.icon');
+        # Check for form
+        $I->seeElement('form');
+        # Check for redirect class in <a>
+        $I->seeElement('.redirect');
     }
 }
