@@ -36,4 +36,17 @@ class HistoryPageCest
         # Check for redirect class in <a>
         $I->seeElement('.redirect');
     }
+
+    public function game(AcceptanceTester $I)
+    {
+        # Home page
+        $I->amOnPage('/games');
+        # Check for icon 
+        $I->seeElement('.icon');
+        # Check for list
+        $I->seeElement('li');
+        # Check for redirect class in <a>
+        $I->seeElement('.redirect');
+    }
 }
+
