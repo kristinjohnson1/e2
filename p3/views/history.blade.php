@@ -19,11 +19,3 @@
  	<a class = "redirect" href='/games'> See previous games </a>
   
 @endsection
-
-
-{{-- to do:
-*add syling 
-*clean up code
-* whatever is required for grad credit
-*validation
- --}}
