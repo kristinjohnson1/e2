@@ -1,12 +1,15 @@
 @extends('templates/master')
 
 @section('title')
-    Rock Paper Scissors
+    {{ $app->config('app.name') }}
+@endsection
+
+@section('head')
+ {{ $app->config('app.name') }}
 @endsection
 
 @section('content')
 
-	<h1>Rock Paper Scissors</h1>
 	<form method='POST' action= '/rps'>
 		<input type='radio' id='rock' name="choice" value="rock" checked><label for="rock">Rock</label>
 		<input type='radio' id='paper' name="choice" value="paper"><label for="paper">Paper</label>
@@ -15,9 +18,16 @@
 		<button type="submit">Play</button>
 	</form>
 
-
-	 {{-- Player 2 picked {{$p2}}. The winner is {{$winner}}. --}}
-
+<div>
+	@isset($p2)
+	Player 2 picked: {{$p2}}
+	@endisset
+</div>
+<div>
+	@isset($winner)
+	Result: {{$winner}}
+	@endisset
+</div>
 	<a href='/games'> See previous games </a>
    
 @endsection

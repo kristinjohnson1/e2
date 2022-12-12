@@ -1,7 +1,11 @@
 @extends('templates/master')
 
 @section('title')
-    Rock Paper Scissors
+     {{ $app->config('app.name') }}
+@endsection
+
+@section('head')
+ {{ $app->config('app.name') }}
 @endsection
 
 @section('content')

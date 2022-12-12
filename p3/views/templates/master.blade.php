@@ -11,13 +11,11 @@
 		integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"> --}}
     <link href='/css/p3.css' rel='stylesheet'>
 
-    @yield('head')
-
 </head>
 <body>
 
 <header>
-   
+    @yield('head')
 </header>
 
 <main>

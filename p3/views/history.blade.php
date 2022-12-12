@@ -4,14 +4,16 @@
    Round {{$game['id'] }}
 @endsection
 
+@section('head')
+ {{ $app->config('app.name') }}
+@endsection
+
 @section('content')
 
-
-    <h2>Round:  {{$game['id'] }}</h2>
-
-  <h2>Player 1: {{ $game['p1'] }}</h2>
-  <h2>Player 2: {{ $game['p2'] }}</h2>
-  <h2>Winner: {{ $game['winner'] }}</h2>
+   <h3>Round: {{$game['id'] }}</h3>
+   <h3>Player 1: {{ $game['p1'] }}</h3>
+   <h3>Player 2: {{ $game['p2'] }}</h3>
+   <h3>Winner: {{ $game['winner'] }}</h3>
 
  	<a href='/games'> See previous games </a>
   

@@ -25,6 +25,7 @@ class AppController extends Controller
         //Generate comp choice
         $p2 = ['rock', 'paper','scissors'][rand(0, 2)];
 
+
         //how player 1 can win & set winner to player 1
         if ($p1 == 'rock' && $p2 == 'scissors' ||
             $p1 == 'paper' && $p2 == 'rock' ||
@@ -47,7 +48,7 @@ class AppController extends Controller
         ];
         $this->app->db()->insert('game', $values);
 
-        return $this->app->view('play', ['winner' => $winner, 'p2' => $p2]);
+        $this->app->view('index', ['winner' => $winner, 'p2' => $p2]);
     }
 
     //show list of all games by date
