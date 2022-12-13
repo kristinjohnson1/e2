@@ -6,14 +6,10 @@ class AppController extends Controller
 {
     /**
      * This method is triggered by the route "/"
-     * Game will be played in index
      */
     public function index()
     {
-        $message = 'test for index';
-        return $this->app->view('index', [
-            'message' => $message
-        ]);
+        return $this->app->view('index');
     }
 
     //Game logic for RPS
